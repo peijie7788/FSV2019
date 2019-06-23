@@ -10,6 +10,14 @@ Safety:
 
 4)Die Heizung muss aus sein, wenn das Fenster geöffnet ist.
 
+8)Die Kaffeemaschine muss aus sein,  wenn keine Person im Haus ist.
+
+9)Die Kaffeemaschine muss aus sein,  wenn Person im Haus ist und es Nacht ist. 
+
+10)Die Musik muss aus sein,  wenn keine Person im Haus ist.           
+
+11)Die Musik muss an sein ,wenn Person im Haus ist. 
+
 Liveness:
 
 5)Die Heizung muss eingeschhaltet werden, wenn die Temperatur niedrig ist und Fenster zu ist und Person im Raum ist.
@@ -23,12 +31,15 @@ Liveness:
 LTL
 
 Pr: Person im Raum
-Ph: Person
+Ph: Person im Haus
 F: Fenster zu
 T: Temperatur niedrig
 Tk: Temperatur kälter (!Tk: Temperatur wärmer)
 H: Heizung einschalten
 Hh: Heizung Temepratur hoch
+K repräsentiert “Kaffeemaschine = an”
+M repräsentiert “Musik = an”
+N repräsentiert  “Nacht”
 
 1)G(Ph => F)
 
@@ -39,3 +50,11 @@ Hh: Heizung Temepratur hoch
 6)GF(Tk => Hh)
 
 7)GF(!Tk => !Hh)
+
+8)G(!Ph -> !K)
+
+9)G(Ph&N -> !K) 
+
+10)G(!Ph -> !M)
+
+11)G(Ph ->M)
