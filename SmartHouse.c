@@ -92,8 +92,17 @@ void changeStatePerSensor(){
 	// if(personenImH)
 	if(geoFencer != imHaus){
 		fenster = geschlossen;
+		kaffee  = aus;
+		musik = aus;
 	}
-
+	
+	if(geoFencer == imHaus){
+		if(uhrzeit == nacht){
+			kaffee  = aus;
+		}
+		musik = an;
+	}
+	
 	if(laserschranke == imRaum){
 		if(fensterSensor == geschlossen){
 			if(temperatur <= 19){
