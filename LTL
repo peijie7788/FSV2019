@@ -1,0 +1,41 @@
+1. Eigenschaften
+
+Safety:
+
+1)Das Fenster muss zu sein, wenn keine Person im Haus ist.
+
+2)Die Heizung muss aus sein, wenn keine Person im Raum ist.
+
+3)Die Heizung muss aus sein, wenn die Temperatur hoch ist.
+
+4)Die Heizung muss aus sein, wenn das Fenster geöffnet ist.
+
+Liveness:
+
+5)Die Heizung muss eingeschhaltet werden, wenn die Temperatur niedrig ist und Fenster zu ist und Person im Raum ist.
+
+6)Die Heizung muss die Temperatur erhöhen, wenn die Temperatur kälter ist.
+
+7)Die Heizung muss die Temperatur erniedrigen, wenn die Temperatur wärmer ist.
+
+
+
+LTL
+
+Pr: Person im Raum
+Ph: Person
+F: Fenster zu
+T: Temperatur niedrig
+Tk: Temperatur kälter (!Tk: Temperatur wärmer)
+H: Heizung einschalten
+Hh: Heizung Temepratur hoch
+
+1)G(Ph => F)
+
+5)GF((Pr & F & T) => H)
+
+234)G((!Pr | !T | !F) => !H)
+
+6)GF(Tk => Hh)
+
+7)GF(!Tk => !Hh)
