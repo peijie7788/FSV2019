@@ -18,6 +18,16 @@ Safety:
 
 11)Die Musik muss an sein ,wenn Person im Haus ist. 
 
+12) Die Tür muss solange geschlossen sein, bis ein Benutzereingabe gegeben wird.
+
+13) Das Licht muss aus sein, wenn keine Person im Raum ist. 
+
+14) Das Licht muss an sein, wenn die Uhrzeit Nacht ist und gleichzeitg auch min. eine Person im Raum ist. 
+
+15) Wenn die Benutzereingabe dem Einstellung entsprechenden Zustand widerspricht, genießt die Eingabe immer eine hohe Priorität.
+
+16) Das Haustürlicht muss aus sein, wenn die Uhrzeit Tag ist oder keine Person nahe Haus ist.
+
 Liveness:
 
 5)Die Heizung muss eingeschhaltet werden, wenn die Temperatur niedrig ist und Fenster zu ist und Person im Raum ist.
@@ -25,6 +35,17 @@ Liveness:
 6)Die Heizung muss die Temperatur erhöhen, wenn die Temperatur kälter ist.
 
 7)Die Heizung muss die Temperatur erniedrigen, wenn die Temperatur wärmer ist.
+
+17)Die Tür muss geöffnet sein, wenn ein entsprechende Benutzereingabe gegeben wird
+
+18) Das Licht muss aus gehen, wenn keine Person mehr im Raum ist.
+
+19) Das Licht muss an gehen, wenn die Uhrzeit Nacht ist und eine Person in den Raum tritt.
+
+20) Das Licht muss an/aus gehen, wenn eine bestimmte Benutzereingabe gegeben wird, egal ob die Uhrzeit Tag oder Nacht ist. 
+
+21) Das Haustürlicht muss an sein, wenn die Uhrzeit Nacht ist und gleichzeitig eine Person nahe Haus ist.
+
 
 
 
@@ -58,3 +79,21 @@ N repräsentiert  “Nacht”
 10)G(!Ph -> !M)
 
 11)G(Ph ->M)
+
+12)(Tür geschlossen) W (Benutzereingabe)
+
+13)(Person in Raum) => G (Licht aus)
+
+14)(Uhrzeit Nacht) Λ (Person im Raum) => G (Licht an)
+
+16)(Uhrzeit Tag) ∨ !(Person nahe Haus) => G (Haustürlicht aus)
+
+17) Benutzereingabe => F (Tür geöffnet)
+
+18)(Person in Raum) => FG (Licht aus)
+
+19)(Uhrzeit Nacht) Λ (Person im Raum) => FG (Licht an)
+
+20)Benutzereingabe => F ((Licht an) ∨ (Licht aus))
+
+21)(Uhrzeit Nacht) ∧ (Person nahe Haus) => F (Haustürlicht an)
