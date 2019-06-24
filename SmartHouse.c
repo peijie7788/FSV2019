@@ -94,6 +94,7 @@ void changeStatePerSensor(){
 		fenster = geschlossen;
 		kaffee  = aus;
 		musik = aus;
+		licht = aus;
 	}
 	
 	if(geoFencer == imHaus){
@@ -104,6 +105,9 @@ void changeStatePerSensor(){
 	}
 	
 	if(laserschranke == imRaum){
+		if(uhrzeit == nacht){
+			licht = an;
+		}
 		if(fensterSensor == geschlossen){
 			if(temperatur <= 19){
 				heizung = an;
@@ -113,6 +117,10 @@ void changeStatePerSensor(){
 
 	if(laserschranke == nichtImRaum || temperatur>=28 || fensterSensor == offen){
 		heizung = aus;
+	}
+	
+	if(laserschranke == nichtImRaum){
+		licht = aus;
 	}
 
 	if(heizung != aus){
@@ -125,10 +133,20 @@ void changeStatePerSensor(){
 		}
 	}
 	
+	
+	
 }
 
 int info(){
 	// printf()
+	printf("***Instruction***\n");
+	printf("sensor f: fensterSensor, control 0: offen, control 1: zu\n");
+	printf("sensor t:temperatur, control int: Temperatur Grad\n");
+	printf("sensor l: laserschranke, control 0: Person im Raum, control 1: keine Person im Raum\n");
+	printf("sensor g: geoFencing, control 0: Person im Haus, control 1: keine Person im Haus\n");
+	printf("sensor u: uhrzeit, control 0: Tag, control 1: Nacht\n");
+	printf("Simulation example: f 1\n");
+	printf("Simulation example: t 25\n");	
 	return 0;
 }
 
