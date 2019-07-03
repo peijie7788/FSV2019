@@ -1,0 +1,36 @@
+extern int __VERIFIER_nondet_int();
+extern void __VERIFIER_error(void); 
+extern void __VERIFIER_assume();
+
+enum fstate{zu,offen};
+enum state{aus,an};
+
+int bewohner = 0;
+enum fstate fenster = zu;
+enum state heizung = aus;
+
+int main() {
+  for(;;) {
+    // inputs:
+    fenster = __VERIFIER_nondet_int();
+    __VERIFIER_assume(fenster == zu | fenster == offen);
+    bewohner = __VERIFIER_nondet_int();
+    __VERIFIER_assume(bewohner>=0 && bewohner <=2);
+
+
+    // controller:
+    if (fenster == zu && bewohner>0) {
+      heizung = an;
+    } else if (fenster == offen) {
+      heizung = aus;
+    }
+
+    
+    // property-check:
+    //((bewohner>0) && (fenster=zu)) => heizung an
+    if (!(bewohner==0 || fenster!=zu || heizung == an)) {
+      __VERIFIER_error();
+    }
+    // (fenster==offen) => heizung=aus fehlt
+  }
+}
