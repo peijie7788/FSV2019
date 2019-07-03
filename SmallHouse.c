@@ -12,7 +12,6 @@ enum Schalter heizung;
 enum Fenstersensor fensterSensor;
 
 int initialize(){
-	fensterSensor = zu;
 	heizung = an;
 	return 0;
 }
