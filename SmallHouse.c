@@ -32,13 +32,13 @@ int main(){
 
 		fensterSensor = __VERIFIER_nondet_int();
 
-		//?
+		
 		__VERIFIER_assume(fensterSensor== offen | fensterSensor == zu);
 
 
 		changeStatePerSensor();
 
-		if (!(fensterSensor==offen || heizung== aus))
+		if (!(fensterSensor==zu || heizung== aus))
 		{
 			__VERIFIER_error();
 		}
