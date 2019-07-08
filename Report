@@ -1,0 +1,28 @@
+
+b)
+
+CPA Result:
+
+Am Anfang hatten wir an Zeile 41 Fenstersensor offen, mit dem CPAChecker haben wir diesen Fehler gefunden. Die Standardausgabe sieht im Wesentlichen Folgendermaßen aus:
+
+Error path found, starting counterexample check with CPACHECKER.
+
+Error path found and confirmed by counterexample check with CPACHECKER
+
+Verification result: FALSE. Property violation (__VERIFIER_error(); called in line 43) found by chosen configuration.
+
+Dann haben wir korrigiert und dieser Fehler wurde behoben.
+
+c)
+
+In HTML Report wird ein Graph erstellt, die alle mögliche Pfade veranschaulicht. Besonders interessant ist es, dass beim Fehler der Pfad in roter Farbe markiert wird, dabei wird die Wertbelegung von Variablen angegeben. Bei der Ausführung ohne Fehler wird kein Pfad angegeben.
+
+d)e)
+
+   CFG has 5 procedures, 22 locations, 0 error locations. SAFE Result, 0.0s OverallTime, 0 OverallIterations, 0 TraceHistogramMax, 0.0s AutomataDifference, 0.0s DeadEndRemovalTime, 0.0s HoareAnnotationTime, HoareTripleCheckerStatistics: No data available, PredicateUnifierStatistics: No data available, 0.0s BasicInterpolantAutomatonTime, BiggestAbstraction: size=22occurred in iteration=0, TraceCheckerStatistics: No data available, InterpolantConsolidationStatistics: No data available, 0/0 InterpolantCoveringCapability, TotalInterpolationStatistics: No data available, 0.0s AbstIntTime, 0 AbstIntIterations, 0 AbstIntStrong, AutomataMinimizationStatistics: No data available, HoareAnnotationStatistics: 0.0s HoareAnnotationTime, 8 LocationsWithAnnotation, 8 PreInvPairs, 8 NumberOfFragments, 8 HoareAnnotationTreeSize, 8 FomulaSimplifications, 0 FormulaSimplificationTreeSizeReduction, 0.0s HoareSimplificationTime, 8 FomulaSimplificationsInter, 0 FormulaSimplificationTreeSizeReductionInter, 0.0s HoareSimplificationTimeInter
+
+   Beim Ultimateautomizer war das Resultat "no Error", im Vergleich zu CPAChecker ist das Ergebnis jedoch nicht so anschaulich, denn man muss im Ultimate.log das Ergebnis durchsuchen.
+
+   4)
+
+   Eigentlich haben wir beim Explizite/Symbolische Erreichbarkeitsanalyse den Fehler schon gefunden. Zur Sicherheit haben wir den falschen Code Verifier übergeben. Es freut uns, dass die beiden den gleichen Fehler erkannt haben.
