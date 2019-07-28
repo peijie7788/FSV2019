@@ -1,0 +1,40 @@
+1. Definition von Modell im Kontext von Verifikation
+    1. enthält genug Information, um die Eigenschaft zu prüfen, soll aber anderen Details vernachlässigen
+2. Vergleichen Testen mit Formale Verifikation und nennen jeweils die Vor- und Nachteile
+    1. Vergleichen
+        1. Formale Verifikation versucht Aussagen über alle Pfade im System zu machen.
+        2. Testen dagegen kann in der Regel nur Aussagen über einige Pfade im System machen
+3. Aufzählende Suche
+    1. 要点
+        1. 在判断语句停
+        2. 在赋值语句停
+4. Symbolische Suche
+    1. 要点
+        1. 赋值语句停
+        2. 判断语句停
+            1. 分叉时直接进入，在Block中下一句赋值或判断语句停
+            2. 在结束Block时停
+        3. 判断语句的条件会加入句子
+5. OBDD Reduzieren
+    1. 要点
+        1. Formel in DNF überführen
+        2. 找（最大）相同的block, 合并
+        3. 缩减结果的0.1，合并
+        4. 删掉中间多余项，（这一项无论左右都通往同一项）
+6. 最小OBDD
+    1. 要点
+        1. 有依赖关系的变量 放在附近
+        2. 被多次依赖的变量往前放
+7. DPLL
+    1. 要点
+        1. Input: Set of clauses 𝜙
+        2. If 𝜙 is a consistent set of literals
+            1. then return true
+        3. if 𝜙 contains empty clause
+            1. then return false
+        4. Unit Propagation
+            1. unit clause: ………∧x2
+            2. unit propagate (l, 𝜙)
+        5. Pure Literal Elimination
+            1. Literal x1 总是以x1 或者 !x1的形式出现
+            2. Pure LIteral Elimination
